@@ -21,9 +21,8 @@ def meters_daily_data_view(request):
         
         # Serialize data
         serializer = MetersDailyDataSerializer(paginated_data, many=True)
-        
-        # Send paginated response
-        return paginator.get_paginated_response(serializer.data)
+        response_data=serializer.data
+        return paginator.get_paginated_response(response_data)
 
     except Exception as e:
         # Handle errors gracefully
